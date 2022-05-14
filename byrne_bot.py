@@ -42,7 +42,7 @@ class MediaInfo:
     identifier: str
     uploader: str
     duration: float
-    tags: List[str]
+    tags: [str]
     filepath: Path
 
 
@@ -223,14 +223,14 @@ class PlaybackCog(commands.Cog):
         await ctx.send("Shuffle is currently not implemented.")
 
 
+@dataclass
+class Config:
+    directory: Path
+    token: str
+
+
 class ByrneBot:
-    @dataclass
-    class Config:
-        directory: Path
-        token: str
-
-
-    def __init__(self, config: MusicBobConfig):
+    def __init__(self, config: Config):
         self.config = config
         logging.info(f"Initialized MusicBob instance! Working Directory: {self.config.directory}  Token: {self.config.token}")
 
