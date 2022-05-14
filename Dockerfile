@@ -9,6 +9,6 @@ RUN apt install git-core python3 python3-pip -y
 RUN pip3 install pipenv
 RUN git clone https://github.com/rleyva/byrne-bot.git
 WORKDIR byrne-bot
-RUN pipenv install
+RUN pipenv install --deploy
 
-ENTRYPOINT ["pipenv run python3", "byrne_bot.py"]
+ENTRYPOINT ["pipenv", "run", "python", "byrne_bot.py"]
